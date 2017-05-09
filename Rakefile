@@ -3,7 +3,7 @@ BINS = SRCS.ext('')
 
 SRCS.each do |src|
   bin = src.ext('')
-  file bin => src do
+  file bin => [src, "config.h"] do
     sh "gcc -O3 -o #{bin} #{src}"
   end
 end
