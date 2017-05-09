@@ -1,6 +1,15 @@
-task :default do
-  sh "gcc -O3 ./fork.c -o ./fork"
-  sh "gcc -O3 ./vfork.c -o ./vfork"
-  sh "gcc -O3 ./system.c -o ./system"
-  sh "gcc -O3 ./posix_spawn.c -o ./posix_spawn"
+CC = "gcc"
+
+SRCS = FileList["*.c"]
+BINS = SRCS.ext('')
+
+SRCS.each do |src|
+  bin = src.ext('')
+  file bin => src do
+    sh "gcc -O3 -o #{bin} #{src}"
+  end
+end
+
+task :default => BINS
+task :time => BINS do
 end

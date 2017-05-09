@@ -1,3 +1,5 @@
+#! /usr/bin/env ruby
+
 require_relative 'config.rb'
 
 COUNT.times do
