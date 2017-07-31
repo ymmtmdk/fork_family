@@ -1,6 +1,6 @@
 #! /usr/bin/env ruby
 
-require_relative 'config.rb'
+require_relative 'setting.rb'
 
 COUNT.times do
   system(BIN, *ARGV_.drop(1))
